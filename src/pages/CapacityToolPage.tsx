@@ -2,9 +2,7 @@ import React, { useState, useCallback } from "react";
 import {
   CapacityToolState,
   TCellParams,
-  TCellResults,
   ActiveUsersParams,
-  ActiveUsersResults,
   TrafficInputParams,
   TrafficServiceData,
   TotalTrafficParams,
