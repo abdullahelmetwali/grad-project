@@ -1,12 +1,10 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   LinkBudgetToolState,
   LinkBudgetQuestion,
   LinkBudgetAnswer,
-  LinkBudgetQuestionSimple,
   LinkBudgetQuestionStaged,
 } from "../types/linkBudgetTool";
-import { linkBudgetQuestionsData } from "./linkBudgetData"; // Store questions data here
 
 // --- Helper Functions & Initial State ---
 const initialState: LinkBudgetToolState = {
@@ -296,7 +294,7 @@ const LinkBudgetToolPage: React.FC = () => {
           <button
             onClick={handleNextQuestion}
             // Disable if staged question is awaiting stage 2, or if it is the last question and already handled by selectOption
-            disabled={currentQuestion?.type === "staged" && state.currentStageSelection === "Stage1" || (state.currentQuestionIndex === state.questions.length - 1 && state.answers.length === state.questions.length)}
+            disabled={(currentQuestion?.type === "staged" && state.currentStageSelection === "Stage1") || (state.currentQuestionIndex === state.questions.length - 1 && state.answers.length === state.questions.length)}
             className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg shadow disabled:opacity-50 transition duration-150"
           >
             {state.currentQuestionIndex === state.questions.length - 1 ? "Show Final Calculations" : "Next Question"}
